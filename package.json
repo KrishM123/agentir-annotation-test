@@ -1,5 +1,8 @@
 {
   "name": "agentir-annotation-test",
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@agentir/sdk": "^0.1.0"
+  }
 }
