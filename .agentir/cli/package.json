@@ -1,0 +1,16 @@
+{
+  "name": "agentir",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "agentir": "./bin/agentir.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "tsx": "^4.20.6"
+  },
+  "managedBy": "agentir"
+}
