@@ -1,0 +1,6 @@
+{
+  "managedBy": "agentir",
+  "workflowId": "test2",
+  "allocatorBaseUrl": "https://allocator.agentir.dev",
+  "contractPath": "agent.py#G"
+}

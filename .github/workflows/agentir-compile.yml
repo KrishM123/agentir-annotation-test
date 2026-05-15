@@ -1,0 +1,34 @@
+# Managed by AgentIR compile bootstrap.
+name: AgentIR Compile
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Install Node dependencies
+        run: npm install
+      - name: Expose local Node binaries
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
+      - name: Compile workflow
+        env:
+          AGENTIR_WORKFLOW_KEY: ${{ secrets.AGENTIR_WORKFLOW_KEY }}
+          AGENTIR_WORKFLOW_ID: ${{ vars.AGENTIR_WORKFLOW_ID }}
+          AGENTIR_BASE_URL: ${{ vars.AGENTIR_BASE_URL }}
+        run: agentir compile --config agentir.config.json

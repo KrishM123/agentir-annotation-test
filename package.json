@@ -2,7 +2,11 @@
   "name": "agentir-annotation-test",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {
-    "@agentir/sdk": "^0.1.0"
+  "dependencies": {},
+  "scripts": {
+    "agentir:compile": "agentir compile --config agentir.config.json"
+  },
+  "devDependencies": {
+    "agentir": "file:.agentir/cli"
   }
 }
